@@ -93,9 +93,6 @@ server.port=8080
 ```
 
 > **Note:** In a production environment, credentials should be stored as environment variables and never hardcoded or committed to version control.
-
-> **Note:** In a production environment, credentials should be stored as environment variables and never hardcoded or committed to version control.
-
 ---
 
 ## How to Run
