@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fedrikp.dto.book.BookRequestDTO;
 import com.fedrikp.dto.book.BookResponseDTO;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
@@ -38,12 +40,12 @@ public class BookController {
 	}
 
 	@PostMapping
-	public ResponseEntity<BookResponseDTO> create(@RequestBody BookRequestDTO request) {
+	public ResponseEntity<BookResponseDTO> create(@Valid @RequestBody BookRequestDTO request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bookService.create(request));
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<BookResponseDTO> update(@PathVariable Long id, @RequestBody BookRequestDTO request) {
+	public ResponseEntity<BookResponseDTO> update(@Valid @PathVariable Long id, @RequestBody BookRequestDTO request) {
 		return ResponseEntity.ok(bookService.update(id, request));
 	}
 

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fedrikp.dto.category.CategoryRequestDTO;
 import com.fedrikp.dto.category.CategoryResponseDTO;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -37,12 +39,12 @@ public class CategoryController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<CategoryResponseDTO> create(@RequestBody CategoryRequestDTO request) {
+	public ResponseEntity<CategoryResponseDTO> create(@Valid @RequestBody CategoryRequestDTO request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.save(request));
 	}
 	
 	@PutMapping("/{id}")
-    public ResponseEntity<CategoryResponseDTO> update(@PathVariable Long id, @RequestBody CategoryRequestDTO request) {
+    public ResponseEntity<CategoryResponseDTO> update(@Valid @PathVariable Long id, @RequestBody CategoryRequestDTO request) {
 		return ResponseEntity.ok(categoryService.update(id, request));
 	}
 	
