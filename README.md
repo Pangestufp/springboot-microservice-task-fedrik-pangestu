@@ -76,19 +76,23 @@ CREATE DATABASE book_management;
 
 ## Environment Variables
 
-This project uses `application.properties` for configuration. Create or update `src/main/resources/application.properties` with your PostgreSQL credentials:
+Create or update `src/main/resources/application.properties` with your PostgreSQL credentials:
 
 ```properties
+spring.application.name=springboot-microservice-task-fedrik-pangestu
+
 spring.datasource.url=jdbc:postgresql://localhost:5432/book_management
 spring.datasource.username=your_username
 spring.datasource.password=your_password
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
 
 server.port=8080
 ```
+
+> **Note:** In a production environment, credentials should be stored as environment variables and never hardcoded or committed to version control.
 
 > **Note:** In a production environment, credentials should be stored as environment variables and never hardcoded or committed to version control.
 
