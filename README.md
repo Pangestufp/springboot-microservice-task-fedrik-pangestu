@@ -222,18 +222,7 @@ http://localhost:8080
 ---
 
 ## ER Diagram
-
-```
-+----------------+          +-------------------+
-|   categories   |          |       books       |
-+----------------+          +-------------------+
-| id (PK)        |1       N | id (PK)           |
-| category_name  |----------| title             |
-+----------------+          | author            |
-                            | isbn (UNIQUE)     |
-                            | published_date    |
-                            | category_id (FK)  |
-                            +-------------------+
+![ER Diagram](docs/er-diagram.png)
 ```
 
 One category can have many books. A book must belong to one category.
